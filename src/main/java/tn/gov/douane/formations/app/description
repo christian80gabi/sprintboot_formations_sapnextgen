@@ -1,0 +1,5 @@
+L'APP est la couche applicative ou metier de l'application.
+C'est elle qui renferme tous les services applicatifs. 
+Dans notre contexte, ceux-ci ont ete organisee par module en fonction 
+de l'analyse faite du contexte et du probleme et de la vision du projet de l'equipe.
+Chaque module est independant et reutilisable. C'est ce qu'on appelle un micro-service.

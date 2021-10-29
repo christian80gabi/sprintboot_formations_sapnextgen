@@ -1,0 +1,9 @@
+Let me explain it briefly.
+
+– FileInfo contains information of the uploaded file.
+– FilesStorageService helps us to initialize storage, save new file, load file, get list of Files’ info, delete all files.
+– FilesController uses FilesStorageService to export Rest APIs: POST a file, GET all files’ information, download a File.
+– FileUploadExceptionAdvice handles exception when the controller processes file upload.
+– application.properties contains configuration for Servlet Multipart.
+– uploads is the static folder for storing files.
+– pom.xml for Spring Boot dependency.

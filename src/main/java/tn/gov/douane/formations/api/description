@@ -1,0 +1,12 @@
+L'API est la couche fonctionnelle de l'application.
+C'est elle qui renferme : 
+- la logique des donnees et leur relation.
+- Les operations CRUD qui permettent de manipuler les donnees
+
+Elle contient 5 couches ou dossiers principaux a savoir :
+- Controller : Gestion des acces a l'API_REST (Au travers d'une URL)
+- Service : Implementation des CRUD pour chaque table 
+- Repository : Couche DAO qui permet d'interagir avec le schema des donnees au travers des requetes SQl
+- Model : Abstraction du schema des donnees sous forme de classes JPA
+- Dto : Gestion des donnees envoyees par la couche vue ou interfaces utilisateur de l'application.
+        | Elle permet de recuperer et formater ceux-ci pour qu'il soit comprehensible par le metier 

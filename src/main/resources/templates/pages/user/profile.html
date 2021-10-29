@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<!--
+  Home Page
+-->
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile | Formations · Douane</title>
+  <!-- Icon | Logo -->
+  <link rel="icon" href="/img/logo.png" />
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="/css/main.css" />
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap/bootstrap.css" />
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/home"><img src="/img/logo.png" width="50" alt="douane" /></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/mes/formations}"><img src="/img/icons/mortarboard.png" width="50" alt="formations" />
+            Formations</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/postes/all}"><img src="/img/icons/desktop.png" width="50" alt="postes" />
+            Postes</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#"><img src="/img/icons/letter.png" width="50" alt="Contacts" />
+            Contacts</a>
+        </li>
+      </ul>
+
+      <div class="my-2 my-lg-0">
+        <div class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <img src="/img/icons/user-1.png" width="50" alt="profile" />
+          </a>
+          <div class="dropdown-menu dropdown-menu-lg-right" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Profil</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#"><img src="/img/icons/power-off.png" width="30" alt="profile" />
+              Déconnexion</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main -->
+
+  <!-- Picture profile -->
+  <ul class="nav justify-content-center">
+    <li class="nav-item">
+      <div class="card" style="width: 18rem">
+        <img src="/img/icons/user-1.png" class="card-img-top" alt="user-picture-profile" />
+        <form class="card-body" action="#" method="POST">
+          <h5 class="card-title">
+            <label for="exampleFormContolFie1">Modifier la photo de profil</label>
+          </h5>
+          <div class="form-group">
+            <div class="card-text">
+              <div class="custom-file mb-3">
+                <input type="file" class="custom-file-input" id="choose-picture" required>
+                <label class="custom-file-label" for="choose-picture">Choisir un fichier</label>
+                <div class="invalid-feedback">Vous devez choisir une image (PNG, JPEG, JPG).</div>
+              </div>
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary" value="Valider">
+                Valider
+              </button>
+            </div>
+        </form>
+      </div>
+    </li>
+  </ul>
+
+  <!-- Section | Connection Informations -->
+  <section class="container mt-md-5">
+    <h3>Informations</h3>
+    <hr />
+    <div class="container">
+      <form method="POST" action="#">
+        <div class="input-group input-group-lg mb-2">
+          <div class="input-group-prepend">
+            <div id="new-username" class="input-group-text">
+              <img src="/img/icons/user.png" width="30" alt="lock" />
+            </div>
+          </div>
+          <input aria-label="New-username" aria-describedby="new-username" class="form-control" type="text"
+            name="new-username" value="" placeholder="Nom d'utilisateur" />
+        </div>
+
+        <div class="input-group input-group-lg mb-4">
+          <div class="input-group-prepend">
+            <div id="new-password" class="input-group-text">
+              <img src="/img/icons/padlock.png" width="30" alt="lock" />
+            </div>
+          </div>
+          <input aria-label="New-password" aria-describedby="new-password" class="form-control" type="password"
+            name="new-password" value="" placeholder="Nouveau mot de passe" />
+        </div>
+
+        <div class="d-flex justify-content-between">
+          <button id="reset-button" class="btn btn-secondary" type="reset" value="Reinitialiser le formulaire">
+            Reinitialiser le formulaire
+          </button>
+          <button id="validation-button" class="btn btn-primary" type="submit" value="Continuer">
+            Continuer
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Section | Formations - Backgound -->
+  <section class="container mt-md-5">
+    <div class="d-flex justify-content-between">
+      <h3>Formation</h3>
+      <button type="button" id="add-formation" class="btn btn-success" data-toggle="modal"
+        data-target="#add-edit-formation" data-placement="left" title="Ajouter" data-whatever="add">
+        +
+      </button>
+    </div>
+    <hr />
+    <div class="container">
+      <div class="list-group">
+        <div class="list-group-item list-group-item-action">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">Université Internationale de Tunis</h5>
+            <small><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#add-edit-formation"
+                data-whatever="edit"><img src="/img/icons/bootstrap-icons/pen.svg"></button></small>
+          </div>
+          <h6 class="mb-1">Master en Systèmes d'Informations</h6>
+          <p class="mb-1">
+            10/04/2018 - 07/07/2020
+          </p>
+          <small>Donec id elit non mi porta gravida at eget metus. Maecenas sed
+            diam eget risus varius blandit. Donec id elit non mi porta gravida at eget metus. Maecenas sed
+            diam eget risus varius blandit.</small>
+        </div>
+
+        <div class="list-group-item list-group-item-action">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">Université Internationale de Tunis</h5>
+            <small><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#add-edit-formation"
+                data-whatever="edit"><img src="/img/icons/bootstrap-icons/pen.svg"></button></small>
+          </div>
+          <h6 class="mb-1">Master en Systèmes d'Informations</h6>
+          <p class="mb-1">
+            10/04/2018 - 07/07/2020
+          </p>
+          <small>Donec id elit non mi porta gravida at eget metus. Maecenas sed
+            diam eget risus varius blandit. Donec id elit non mi porta gravida at eget metus. Maecenas sed
+            diam eget risus varius blandit.</small>
+        </div>
+
+        <div class="list-group-item list-group-item-action">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">Université Internationale de Tunis</h5>
+            <small><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#add-edit-formation"
+                data-whatever="edit"><img src="/img/icons/bootstrap-icons/pen.svg"></button></small>
+          </div>
+          <h6 class="mb-1">Master en Systèmes d'Informations</h6>
+          <p class="mb-1">
+            10/04/2018 - 07/07/2020
+          </p>
+          <small>Donec id elit non mi porta gravida at eget metus. Maecenas sed
+            diam eget risus varius blandit. Donec id elit non mi porta gravida at eget metus. Maecenas sed
+            diam eget risus varius blandit.</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal | Add or Update a Formation  -->
+    <div class="modal fade" id="add-edit-formation" tabindex="-1" aria-labelledby="AddEditFormation" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="AddEditFormation">Formation</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form method="POST" action="#">
+              <div class="form-group">
+                <label for="formation-school" class="col-form-label">Ecole | Institut <span
+                    style="color: red;">*</span></label>
+                <input type="text" class="form-control" id="formation-school"
+                  placeholder="Ex: Ecole Nationale des Douanes" required>
+              </div>
+              <div class="form-group">
+                <label for="formation-degree" class="col-form-label">Diplôme | Attestation <span
+                    style="color: red;">*</span></label>
+                <input type="text" class="form-control" id="formation-degree"
+                  placeholder="Ex: Inspecteur des Importations" required>
+              </div>
+              <div class="form-group">
+                <label for="formation-field-of-study" class="col-form-label">Domaine d'études <span
+                    style="color: red;">*</span></label>
+                <input type="text" class="form-control" id="formation-field-of-study"
+                  placeholder="Ex: Importations Douanières" required>
+              </div>
+              <div class="form-row">
+                <div class="col">
+                  <label for="formation-date-from" class="col-form-label">Date de début <span
+                      style="color: red;">*</span></label>
+                  <input type="date" class="form-control" id="formation-date-from" required>
+                </div>
+                <div class="col">
+                  <label for="formation-date-to" class="col-form-label">Date de fin <span
+                      style="color: red;">*</span></label>
+                  <input type="date" class="form-control" id="formation-date-to" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="formation-description" class="col-form-label">Description</label>
+                <textarea class="form-control" id="formation-descripti"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="formation-skills" class="col-form-label">Compétences aquises</label>
+                <input type="text" class="form-control" id="formation-skills"
+                  placeholder="Ex: 'Inspection', 'Transports', ...">
+              </div>
+              <p><b>Média</b></p>
+              <hr />
+              <div class="form-row">
+                <div class="col">
+                  <label for="formation-file" class="custom-file-label">Téléchager</label>
+                  <input type="file" class="custom-file-input" id="formation-file">
+                </div>
+                <div class="col">
+                  <label for="formation-link" class="col-form-label" hidden>Lien</label>
+                  <input type="url" class="form-control" id="formation-link" placeholder="Lien URL">
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button id="closeButtonFormation" type="button" class="btn btn-secondary"
+              data-dismiss="modal">Fermer</button>
+            <button type="submit" class="btn btn-primary" id="formation-save" valid>Enregistrer</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Modal | Confirm Delete Formation | Yes/No-->
+    <div class="modal fade" id="confirm-modal-formation" tabindex="-1" aria-labelledby="confirmModal"
+      aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="confirmModal">Voulez vous vraiment supprimer ?</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body d-flex justify-content-between">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+            <button type="button" class="btn btn-danger">Oui</button>
+          </div>
+          <div class="modal-footer">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section | Experience -->
+  <section class="container mt-md-5">
+    <div class="d-flex justify-content-between">
+      <h3>Experience</h3>
+      <button type="button" id="add-experience" class="btn btn-success" data-toggle="modal"
+        data-target="#add-edit-experience" data-placement="left" title="Ajouter" data-whatever="add">
+        +
+      </button>
+    </div>
+    <hr />
+    <div class="container">
+      <div class="list-group">
+        <div class="list-group-item list-group-item-action">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">Manageur des Ressources Humaines</h5>
+            <small><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#add-edit-experience"
+                data-whatever="edit"><img src="/img/icons/bootstrap-icons/pen.svg"></button></small>
+          </div>
+          <h6 class="mb-1">BIAT · Temps plein</h6>
+          <p class="mb-1">
+            10/04/2007 - 07/07/2016
+          </p>
+          <p class="mb-1">
+            Tunis, Tunisie
+          </p>
+          <small>Donec id elit non mi porta gravida at eget metus. Maecenas sed
+            diam eget risus varius blandit. Donec id elit non mi porta gravida at eget metus. Maecenas sed
+            diam eget risus varius blandit.</small>
+        </div>
+        <div class="list-group-item list-group-item-action">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">Manageur des Ressources Humaines</h5>
+            <small><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#add-edit-experience"
+                data-whatever="edit"><img src="/img/icons/bootstrap-icons/pen.svg"></button></small>
+          </div>
+          <h6 class="mb-1">BIAT · Temps plein</h6>
+          <p class="mb-1">
+            10/04/2007 - 07/07/2016
+          </p>
+          <p class="mb-1">
+            Tunis, Tunisie
+          </p>
+          <small>Donec id elit non mi porta gravida at eget metus. Maecenas sed
+            diam eget risus varius blandit. Donec id elit non mi porta gravida at eget metus. Maecenas sed
+            diam eget risus varius blandit.</small>
+        </div>
+        <div class="list-group-item list-group-item-action">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">Manageur des Ressources Humaines</h5>
+            <small><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#add-edit-experience"
+                data-whatever="edit"><img src="/img/icons/bootstrap-icons/pen.svg"></button></small>
+          </div>
+          <h6 class="mb-1">BIAT · Temps plein</h6>
+          <p class="mb-1">
+            10/04/2007 - 07/07/2016
+          </p>
+          <p class="mb-1">
+            Tunis, Tunisie
+          </p>
+          <small>Donec id elit non mi porta gravida at eget metus. Maecenas sed
+            diam eget risus varius blandit. Donec id elit non mi porta gravida at eget metus. Maecenas sed
+            diam eget risus varius blandit.</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal | Add or Update an Experience  -->
+    <div class="modal fade" id="add-edit-experience" tabindex="-1" aria-labelledby="AddEditExperience"
+      aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="AddEditExperience">Experience</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form method="POST" action="#">
+              <div class="form-group">
+                <label for="experience-title" class="col-form-label">Intitulé du poste <span
+                    style="color: red;">*</span></label>
+                <input type="text" class="form-control" id="experience-title"
+                  placeholder="Ex: Manageur des Ressources Humaines" required>
+              </div>
+              <div class="form-group">
+                <label for="experience-employment-type" class="col-form-label">Type d'emploi <span
+                    style="color: red;">*</span></label>
+                <select class="custom-select" id="experience-employment-type" required>
+                  <option selected></option>
+                  <option value="1">Temps plein</option>
+                  <option value="2">Temps Partiel</option>
+                  <option value="3">Indépendant</option>
+                  <option value="4">Freelance</option>
+                  <option value="5">CDD</option>
+                  <option value="6">Stage</option>
+                  <option value="7">Contrat en alternance</option>
+                  <option value="8">Seasonal</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="experience-company" class="col-form-label">Entreprise <span
+                    style="color: red;">*</span></label>
+                <input type="text" class="form-control" id="experience-company" placeholder="Ex: BIAT" required>
+              </div>
+              <div class="form-group">
+                <label for="experience-location" class="col-form-label">Lieu <span style="color: red;">*</span></label>
+                <input type="text" class="form-control" id="experience-location" placeholder="Ex: Tunisie" required>
+              </div>
+              <div class="form-row">
+                <div class="col">
+                  <label for="experience-date-from" class="col-form-label">Date de début <span
+                      style="color: red;">*</span></label>
+                  <input type="date" class="form-control" id="experience-date-from" required>
+                </div>
+                <div class="col">
+                  <label for="experience-date-to" class="col-form-label">Date de fin <span
+                      style="color: red;">*</span></label>
+                  <input type="date" class="form-control" id="experience-date-to" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="formation-description" class="col-form-label">Description</label>
+                <textarea class="form-control" id="formation-description"></textarea>
+              </div>
+              <p><b>Média</b></p>
+              <hr />
+              <div class="form-row">
+                <div class="col">
+                  <label for="experience-file" class="custom-file-label">Téléchager</label>
+                  <input type="file" class="custom-file-input" id="experience-file">
+                </div>
+                <div class="col">
+                  <label for="experience-link" class="col-form-label" hidden>Lien</label>
+                  <input type="url" class="form-control" id="experience-link" placeholder="Lien URL">
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button id="closeButtonExperience" type="button" class="btn btn-secondary"
+              data-dismiss="modal">Fermer</button>
+            <button type="submit" class="btn btn-primary" id="experience-save">Enregistrer</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Modal | Confirm Delete Formation | Yes/No-->
+    <div class="modal fade" id="confirm-modal-experience" tabindex="-1" aria-labelledby="confirmModalExperience"
+      aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="confirmModalExperience">Voulez vous vraiment supprimer ?</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body d-flex justify-content-between">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+            <button type="button" class="btn btn-danger">Oui</button>
+          </div>
+          <div class="modal-footer">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section | Skills -->
+  <section class="container mt-md-5 mb-5">
+    <div class="d-flex justify-content-between">
+      <h3>Compétences</h3>
+    </div>
+    <hr />
+    <div class="container">
+      <form method="POST" action="#">
+        <div class="form-group row">
+          <label for="categories" class="col-sm-2 col-form-label">
+            Catégorie
+          </label>
+          <div class="col-sm-10">
+            <select class="custom-select" id="categories">
+              <option selected>Choose...</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="section" class="col-sm-2 col-form-label">
+            Section
+          </label>
+          <div class="col-sm-10">
+            <select class="custom-select" id="section">
+              <option selected>Choose...</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="skills" class="col-sm-2 col-form-label">
+            Compétences
+          </label>
+          <div class="col-sm-10">
+            <select class="custom-select" id="skills">
+              <option selected>Choose...</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="level" class="col-sm-2 col-form-label">
+            Niveau
+          </label>
+          <div class="col-sm-10">
+            <select class="custom-select" id="level">
+              <option selected>Choose...</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </div>
+        </div>
+        <div class="text-center">
+          <button id="add-skill" type="submit" class="btn btn-primary" value="Valider">
+            Ajouter
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="container mt-3">
+      <div class="card-deck">
+        <div class="card shadow bg-white rounded">
+          <div class="card-body">
+            <button type="button" class="close" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h5 class="card-title">Card title</h5>
+          </div>
+        </div>
+        <div class="card shadow bg-white rounded">
+          <div class="card-body">
+            <button type="button" class="close" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h5 class="card-title">Card title</h5>
+          </div>
+        </div>
+        <div class="card shadow bg-white rounded">
+          <div class="card-body">
+            <button type="button" class="close" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h5 class="card-title">Card title</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Footer -->
+  <footer id="footer" class="footer text-center mt-auto py-3" style="background-color: #1d2124;">
+    <div class="container">
+      <ul class="nav justify-content-center text-muted">
+        <li class="nav-item m-4">
+          <a href="https://www.douane.gov.tn" class="icon"><img src="/img/logo.png" width="30" alt="douane" /></a>
+          <p>Site-officiel</p>
+        </li>
+        <li class="nav-item m-4">
+          <a href="https://twitter.com/DouaneTunisie/" class="icon"><img src="/img/icons/twitter.png" width="30"
+              alt="twitter" /></a>
+          <p>Twitter</p>
+        </li>
+        <li class="nav-item m-4">
+          <a href="https://www.facebook.com/douane.tunisie/" class="icon"><img src="/img/icons/facebook.png" width="30"
+              alt="facebook" /></a>
+          <p>Facebook</p>
+        </li>
+        <li class="nav-item m-4">
+          <a href="https://www.youtube.com/channel/UCnaeFNIErTt_coPSykdnCWg/featured" class="icon"><img
+              src="/img/icons/youtube.png" width="30" alt="youtube" /></a>
+          <p>Youtube</p>
+        </li>
+      </ul>
+      <p class="text-muted">
+        &copy; Tous droits réservés. Projet:
+        <a href="https://www.douane.gov.tn">Douane Tunisienne</a>. Mise en
+        place:
+        <a href="https://univ-internationale.com/fr/SAP-Next-Gen/SC-20">SAP Next-Gen 2020 | UIT</a>.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+
+  <!-- Bootstrap 4.5.2 -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
+  </script>
+
+  <!-- Main JavaScript -->
+  <script src="/js/main.js"></script>
+</body>
+
+</html>

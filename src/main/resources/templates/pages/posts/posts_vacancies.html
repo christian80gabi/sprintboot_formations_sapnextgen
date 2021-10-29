@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<!--
+  Posts Vacancies Page
+-->
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Posts Vacancies | Formations · Douane</title>
+  <!-- Icon | Logo -->
+  <link rel="icon" href="/img/logo.png" />
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="/css/main.css" />
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap/bootstrap.css" />
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/home"><img src="/img/logo.png" width="50" alt="douane" /></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#"><img src="/img/icons/mortarboard.png" width="50" alt="formations" />
+            Formations</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#"><img src="/img/icons/desktop.png" width="50" alt="postes" />
+            <span class="text-primary">Postes</span> <span class="sr-only">(current)</span></a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#"><img src="/img/icons/letter.png" width="50" alt="Contacts" />
+            Contacts</a>
+        </li>
+      </ul>
+
+      <div class="my-2 my-lg-0">
+        <div class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <img src="/img/icons/user-1.png" width="50" alt="profile" />
+          </a>
+          <div class="dropdown-menu dropdown-menu-lg-right" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Profil</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#"><img src="/img/icons/power-off.png" width="30" alt="profile" />
+              Déconnexion</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Nav | Formations -->
+  <div class="container mb-md-5">
+    <ul class="nav nav-pills justify-content-center">
+      <li class="nav-item">
+        <a class="nav-link text-muted" href="#">Mon Poste</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Postes vacants</a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Main -->
+  <section class="container mt-md-5">
+    <div class="d-flex justify-content-between">
+      <h4>Annonces de postes vacants</h4>
+      <div class="btn-group">
+        <button type="button" class="btn btn-outline-success dropdown-toggle" data-toggle="dropdown"
+          data-display="static" aria-haspopup="true" aria-expanded="false">
+          <img src="/img/icons/filter.png" width="30px" alt="filter">
+          Filtrer
+        </button>
+        <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
+          <div class="dropdown-item custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch1">
+            <label class="custom-control-label" for="customSwitch1">Officiers</label>
+          </div>
+          <div class="dropdown-item custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch2">
+            <label class="custom-control-label" for="customSwitch2">Sous-officiers</label>
+          </div>
+          <div class="dropdown-item custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch3">
+            <label class="custom-control-label" for="customSwitch3">Auxiliaires</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div class="row row-cols-1 row-cols-md-4">
+      <div class="col mb-4">
+        <div class="card">
+          <img src="/img/icons/bootstrap-icons/book-fill.svg" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">
+              This is a longer card with supporting text below as a natural
+              lead-in to additional content. This content is a little bit
+              longer.
+            </p>
+          </div>
+          <div class="card-footer">
+            <button class="btn btn-danger btn-sm" disabled></button>
+            <small class="text-muted">Expirée</small>
+          </div>
+        </div>
+      </div>
+      <div class="col mb-4">
+        <div class="card">
+          <img src="/img/icons/bootstrap-icons/book-fill.svg" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">
+              This is a longer card with supporting text below as a natural
+              lead-in to additional content. This content is a little bit
+              longer.
+            </p>
+          </div>
+          <div class="card-footer">
+            <button class="btn btn-success btn-sm">Postulez</button>
+          </div>
+        </div>
+      </div>
+      <div class="col mb-4">
+        <div class="card">
+          <img src="/img/icons/bootstrap-icons/book-fill.svg" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">
+              This is a longer card with supporting text below as a natural
+              lead-in to additional content.
+            </p>
+          </div>
+          <div class="card-footer">
+            <button type="button" class="btn btn-warning btn-sm" disabled></button>
+            <small class="text-muted">Vous ne pouvez pas postuler</small>
+          </div>
+        </div>
+      </div>
+      <div class="col mb-4">
+        <div class="card">
+          <img src="/img/icons/bootstrap-icons/book-fill.svg" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">
+              This is a longer card with supporting text below as a natural
+              lead-in to additional content.
+            </p>
+          </div>
+          <div class="card-footer">
+            <button type="button" class="btn btn-warning btn-sm" disabled></button>
+            <small class="text-muted">Vous ne pouvez pas postuler</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="footer" class="footer text-center mt-auto py-3" style="background-color: #1d2124;">
+    <div class="container">
+      <ul class="nav justify-content-center text-muted">
+        <li class="nav-item m-4">
+          <a href="https://www.douane.gov.tn" class="icon"><img src="/img/logo.png" width="30" alt="douane" /></a>
+          <p>Site-officiel</p>
+        </li>
+        <li class="nav-item m-4">
+          <a href="https://twitter.com/DouaneTunisie/" class="icon"><img src="/img/icons/twitter.png" width="30"
+              alt="twitter" /></a>
+          <p>Twitter</p>
+        </li>
+        <li class="nav-item m-4">
+          <a href="https://www.facebook.com/douane.tunisie/" class="icon"><img src="/img/icons/facebook.png" width="30"
+              alt="facebook" /></a>
+          <p>Facebook</p>
+        </li>
+        <li class="nav-item m-4">
+          <a href="https://www.youtube.com/channel/UCnaeFNIErTt_coPSykdnCWg/featured" class="icon"><img
+              src="/img/icons/youtube.png" width="30" alt="youtube" /></a>
+          <p>Youtube</p>
+        </li>
+      </ul>
+      <p class="text-muted">
+        &copy; Tous droits réservés. Projet:
+        <a href="https://www.douane.gov.tn">Douane Tunisienne</a>. Mise en
+        place:
+        <a href="https://univ-internationale.com/fr/SAP-Next-Gen/SC-20">SAP Next-Gen 2020 | UIT</a>.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+
+  <!-- Bootstrap 4.5.2 -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
+  </script>
+
+  <!-- Main JavaScript -->
+  <script src="js/main.js"></script>
+</body>
+
+</html>
